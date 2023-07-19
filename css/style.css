@@ -3,21 +3,29 @@
 body {
     background-color: beige;
     font-family: Arial, sans-serif;
-    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
   }
-.add-exp-form {
-    max-width: 400px;
-    margin: 0 auto;
+#add-exp-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 20px;
+    align-items: center;
 }
   
 h1 {
     font-family: Noto Sans Mono, sans-serif;
     font-size: 30px;
     text-align: center;
+    height: 50px;
     width: 400px;
-    background-color:  #fd381e; ;
+    color: bisque;
+    background-color:  #339aa1;
+    border-radius: 15px;
 }
   
 input[type="text"] {
@@ -29,7 +37,7 @@ input[type="text"] {
 }
   
 button {
-    display: block;
+    display:block;
     width: 100px;
     padding: 8px;
     background-color: #3521ac;
@@ -37,19 +45,14 @@ button {
     border: none;
     cursor: pointer;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
   
-/* th {
-    font-family: Noto Sans Mono, sans-serif;
-    margin-bottom: 10px;
-    font-size: 20px;
-}
-   */
 th, td {
     font-family: Noto Sans Mono, sans-serif;
     margin-bottom: 10px;
-    font-size: 20px;
-    padding: 8px;
+    font-size: 15px;
+    padding: 5px;
     text-align: left;
     border-bottom: 1px solid #ddd;
     border-right: 1px solid #ddd;
@@ -62,11 +65,12 @@ th, td {
     justify-content: center;
     top: 50px;
     left: 50px;
-    background-color: rgb(26, 93, 116);
+    background-color:#339aa1; ;
+
 }
   
 .delete-btn {
-    background-color: #fd381e;
+    background-color: #a2511f;
     color: #fff;
     border: none;
     padding: 5px 10px;
