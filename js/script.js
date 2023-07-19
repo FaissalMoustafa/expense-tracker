@@ -1,58 +1,42 @@
-function newExpense(exp,amount) {
-    return `<li>
-      <span class="delete">&#128465</span>
-      <span class="text">${exp}</span>
-      <span class="text">${amount}</span>
-      <input type="text" style="display: none;"/>
-    </li>`
-  }
+$(document).ready(function () {
+  const add_button = $("#add-button");
+  add_button.click(addExpense);
 
-function addExpense() {
+  $("#exp-amount").keyup(function (event) {  
+    if (event.keyCode === 13) {
+      addExpense()
+    }
+  //   if the user pressed enter instead of the Add button
+  }
+  )
+  function addExpense() {
     const exp_name = $("#exp-name").val().trim();
     const exp_amount =parseFloat($("#exp-amount").val());
-    const exp_list = $("#exp-list");
 
-    if (exp_name=== ""|| isNaN(exp_amount) || exp_amount <= 0) return;
-
-    const new_exp = $(newExpense(exp_name.val(),exp_amount.val()))
-
-    //expense: delete
-    new_exp.find(".delete").click(function () {
-        new_exp.remove()
-    })
-    exp_list.append(new_exp)
-    exp_name.val("") 
-    exp_amount.val("")
-}
-
-$(document).ready(function () {
-    const addButton = $("#add-button");
-    addButton.click(addExpense);
-  
-    $("#exp-name").keyup(function (event) {  
-      if (event.keyCode === 13) {
-        addExpense()
-      }
-    //   if the user pressed enter instead of the Add button
+    if (exp_name=== ""|| isNaN(exp_amount) || exp_amount <= 0){ //to handle cases of in-appropriate input
+      return;
     }
-    )
 
-    const exp_list_items = $("#exp-list li"); // gets all list items
-    const exp_table = $("<table></table>"); // Create a new table element
-    const header_row = $("<th>List Items</th>");
-    exp_table.append(header_row);
+    const new_exp = $("<tr></tr>");
+    new_exp.append($("<td></td>").text(exp_name));
+    new_exp.append($("<td></td>").text(exp_amount));
+    new_exp.append($("<td></td>").html('<button class="delete-btn">Delete</button>')); //creating the delete btn
+    
+    $("#expense-table tbody").append(new_exp);
+    const total_amount = parseFloat($("#total-amount").text()) + exp_amount;// updating the total
+    $("#total-amount").text(total_amount);
 
-    // Add expenses as rows to the table
-    exp_list_items.each(function() {
-      const new_exp = $(this).text();
-      const new_entries = $("<tr></tr>");
-      new_entries.append($("<td></td>").text(new_exp));
-      exp_table.append(new_entries);
-    });
+  // Clearing the input
+    $("#exp-name").val("");
+    $("#exp-amount").val("");
+  }
 
-     // Hide the expenses list
-     $("#exp-list").hide();
+  // deleting an expense (from chat GPT)
+  $("#expense-table").on("click", ".delete-btn", function() {
+    const exp_to_delete = parseFloat($(this).parent().prev().text());
+    const total_amount = parseFloat($("#total-amount").text()) - exp_to_delete;
+    $("#total-amount").text(total_amount);
 
-     // Append the table to the "table-container" div
-     $("#exp-table").append(exp_table);
+    $(this).closest("tr").remove(); //to remove the entire row including the delete button itself
+  });
   });

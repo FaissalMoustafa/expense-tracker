@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    background-color: beige;
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+.add-exp-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+  
+h1 {
+    font-family: Noto Sans Mono, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    width: 400px;
+    background-color:  #fd381e; ;
+}
+  
+input[type="text"] {
+    width: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+  
+button {
+    display: block;
+    width: 100px;
+    padding: 8px;
+    background-color: #3521ac;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+  
+/* th {
+    font-family: Noto Sans Mono, sans-serif;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+   */
+th, td {
+    font-family: Noto Sans Mono, sans-serif;
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+
+
+#expense-table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 50px;
+    left: 50px;
+    background-color: rgb(26, 93, 116);
+}
+  
+.delete-btn {
+    background-color: #fd381e;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}

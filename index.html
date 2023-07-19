@@ -10,18 +10,34 @@
 <body>
     <h1>Expense-Tracker</h1>
     <div id="add-exp-form">
-        <label for="exp-name">Expense Name:</label>
+        <label for="exp-name">Expense:</label>
         <input id="exp-name" type="text" placeholder="Add new expense">
-        <label for="exp-amount">Expense Amount:</label>
+        <label for="exp-amount">Amount:</label>
         <input id="exp-amount" type="text" placeholder="Add amount">
         <button id="add-button">Add</button>
-        <ul id="exp-list"></ul>
+        <!-- <ul id="exp-list"></ul> -->
     </div>
 
-  <div id="exp-table">
-    <!-- table -->
-  </div>
-  <script src="./js/script.js"></script>
+    <div id="table-cont">
+        <table id="expense-table">
+            <thead>
+              <tr>
+                <th>Expense</th>
+                <th>Amount</th>
+                <th>delete</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2" class="total">Total:</td>
+                <td class="total" id="total-amount">0</td>
+              </tr>
+            </tfoot>
+          </table>
+    </div>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
